@@ -7,12 +7,6 @@ public class Driver {
     private String licenseNumber;
     private boolean isAvailable;
 
-    public class Driver {
-        private int driverID;
-        private String name;
-        private String phoneNumber;
-        private String licenseNumber;
-        private boolean isAvailable;
 
         // Default constructor
         public Driver() {
@@ -21,7 +15,7 @@ public class Driver {
 
         // Essential fields constructor
         public Driver(String name, String phoneNumber, String licenseNumber) {
-            this.name = name;
+            this.driverName = name;
             this.phoneNumber = phoneNumber;
             this.licenseNumber = licenseNumber;
             this.isAvailable = true; // Default to available
@@ -29,7 +23,7 @@ public class Driver {
 
         // Full constructor without ID (for new entries)
         public Driver(String name, String phoneNumber, String licenseNumber, boolean isAvailable) {
-            this.name = name;
+            this.driverName = name;
             this.phoneNumber = phoneNumber;
             this.licenseNumber = licenseNumber;
             this.isAvailable = isAvailable;
@@ -38,7 +32,7 @@ public class Driver {
         // Full constructor with ID (for database retrieval)
         public Driver(int driverID, String name, String phoneNumber, String licenseNumber, boolean isAvailable) {
             this.driverID = driverID;
-            this.name = name;
+            this.driverName = name;
             this.phoneNumber = phoneNumber;
             this.licenseNumber = licenseNumber;
             this.isAvailable = isAvailable;
@@ -49,7 +43,7 @@ public class Driver {
             return driverID;
         }
         public String getName() {
-            return name;
+            return driverName;
         }
         public String getPhoneNumber() {
             return phoneNumber;
@@ -66,7 +60,7 @@ public class Driver {
             this.driverID = driverID;
         }
         public void setName(String name) {
-            this.name = name;
+            this.driverName = name;
         }
         public void setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
@@ -78,4 +72,4 @@ public class Driver {
             isAvailable = available;
         }
     }
-}
+
