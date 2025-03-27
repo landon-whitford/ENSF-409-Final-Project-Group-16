@@ -1,5 +1,5 @@
 package edu.ucalgary.oop;
-import java.util.Date;
+import java.sql.*;
 
 public class Vehicle {
     private int vehicleID;
