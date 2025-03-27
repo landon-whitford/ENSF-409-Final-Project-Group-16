@@ -6,6 +6,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class VehicleTest {
+    private Vehicle testCar;
     private int vehicleID = 1;
     private String licensePlate = "XYZ-1234";
     private int capacity = 2;
