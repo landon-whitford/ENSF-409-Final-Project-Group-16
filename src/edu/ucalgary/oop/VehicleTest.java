@@ -1,5 +1,6 @@
 package edu.ucalgary.oop;
 
+<<<<<<< Updated upstream
 import java.sql.*;
 
 import org.junit.*;
@@ -16,6 +17,27 @@ public class VehicleTest {
     @Before
     public void setUp(){
         Vehicle testCar = new Vehicle(vehicleID, licensePlate, capacity, isWheelchairAccessible, currentLocation, maintenanceDueDate);
+=======
+import org.junit.*;
+
+import java.util.Date;
+
+import static org.junit.Assert.*;
+
+public class VehicleTest {
+    
+    private Vehicle testCar;
+    private int vehicleID = 1;
+    private String licensePlate = "ABC";
+    private int capacity = 2;
+    private boolean isWheelchairAccessible = true;
+    private String currentLocation = "Calgary";
+    private Date maintenanceDueDate =  new Date(100);
+
+    @Before
+    public void setUp() {
+        testCar = new Vehicle(vehicleID, licensePlate, capacity, isWheelchairAccessible, currentLocation, maintenanceDueDate);
+>>>>>>> Stashed changes
     }
 
     @Test
@@ -23,4 +45,8 @@ public class VehicleTest {
         assertArrayEquals("Constructor assigns values properly. ",
                 licensePlate, testCar.getLicensePlate());
     }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 }
