@@ -19,6 +19,8 @@ public class Vehicle {
         this.maintenanceDueDate = maintenanceDueDate;
     }
 
+    public Vehicle(){}
+
     // Getters
     public int getVehicleID() {
         return vehicleID;
@@ -32,7 +34,7 @@ public class Vehicle {
         return capacity;
     }
 
-    public boolean isWheelchairAccessible() {
+    public boolean getIsWheelchairAccessible() {
         return isWheelchairAccessible;
     }
 
@@ -57,7 +59,7 @@ public class Vehicle {
         this.capacity = capacity;
     }
 
-    public void setWheelchairAccessible(boolean wheelchairAccessible) {
+    public void setIsWheelchairAccessible(boolean wheelchairAccessible) {
         isWheelchairAccessible = wheelchairAccessible;
     }
 
