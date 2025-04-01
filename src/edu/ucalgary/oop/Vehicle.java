@@ -9,15 +9,6 @@ public class Vehicle {
     private String currentLocation;
     private LocalDate maintenanceDueDate;
 
-    // Constructor
-    public Vehicle(int vehicleID, String licensePlate, int capacity, boolean isWheelchairAccessible, String currentLocation, LocalDate maintenanceDueDate) {
-        this.vehicleID = vehicleID;
-        this.licensePlate = licensePlate;
-        this.capacity = capacity;
-        this.isWheelchairAccessible = isWheelchairAccessible;
-        this.currentLocation = currentLocation;
-        this.maintenanceDueDate = maintenanceDueDate;
-    }
 
     public Vehicle(){}
 

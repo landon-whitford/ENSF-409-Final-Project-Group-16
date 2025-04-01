@@ -11,14 +11,6 @@ public class Schedule {
     Date scheduledDate;
     Time scheduledTime;
 
-    public Schedule(int scheduleID, Driver driver, Vehicle vehicle, RideRequest rideRequest, Date scheduledDate, Time scheduledTime) {
-        setScheduleID(scheduleID);
-        setDriver(driver);
-        setVehicle(vehicle);
-        setRideRequest(rideRequest);
-        setDate(scheduledDate);
-        setTime(scheduledTime);
-    }
 
     public Schedule() {
 
