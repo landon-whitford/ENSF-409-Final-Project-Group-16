@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="Data access manager with rr methods">
+    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="Data access manager with vehicle methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/DataAccessManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/DataAccessManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/Schedule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +54,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "DataAccessManager",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -85,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742927089412</updated>
       <workItem from="1742927090799" duration="69000" />
-      <workItem from="1743531970771" duration="6697000" />
+      <workItem from="1743531970771" duration="8443000" />
     </task>
     <task id="LOCAL-00001" summary="Data access manager with rr methods">
       <option name="closed" value="true" />
@@ -95,7 +96,23 @@
       <option name="project" value="LOCAL" />
       <updated>1743535259465</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Data access manager with vehicle methods">
+      <option name="closed" value="true" />
+      <created>1743538739663</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743538739663</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Data access manager with vehicle methods">
+      <option name="closed" value="true" />
+      <created>1743539211944</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1743539211944</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +121,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="What is commit?" />
     <MESSAGE value="Data access manager with rr methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Data access manager with rr methods" />
+    <MESSAGE value="Data access manager with vehicle methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Data access manager with vehicle methods" />
   </component>
 </project>
