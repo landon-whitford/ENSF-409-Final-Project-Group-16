@@ -29,9 +29,10 @@ public class RideRequest {
 
     public String getSpecialRequirements() {return this.specialRequirements;}
 
-    public String getRequestDate() { return this.requestDate.toString();}
+    public java.sql.Date getRequestDate() { return this.requestDate; } //  returns Date
 
-    public String getPickupTime() {return this.pickupTime.toString();}
+    public java.sql.Time getPickupTime() { return this.pickupTime; }
+
 
     public String getStatus() {return this.status;}
 

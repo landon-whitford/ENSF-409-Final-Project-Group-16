@@ -69,8 +69,8 @@ public class DataAccessManager {
             pstmt.setString(3, request.getDropOffLocation());
             pstmt.setInt(4, request.getPassengerCount());
             pstmt.setString(5, request.getSpecialRequirements());
-            pstmt.setDate(6, java.sql.Date.valueOf(request.getRequestDate()));
-            pstmt.setTime(7, java.sql.Time.valueOf(request.getPickupTime()));
+            pstmt.setDate(6, java.sql.Date.valueOf(request.getRequestDate().toString()));
+            pstmt.setTime(7, java.sql.Time.valueOf(request.getPickupTime().toString()));
             pstmt.setString(8, request.getStatus());
 
             try (ResultSet rs = pstmt.executeQuery()) {
@@ -96,8 +96,8 @@ public class DataAccessManager {
             pstmt.setString(3, request.getDropOffLocation());
             pstmt.setInt(4, request.getPassengerCount());
             pstmt.setString(5, request.getSpecialRequirements());
-            pstmt.setDate(6, java.sql.Date.valueOf(request.getRequestDate()));
-            pstmt.setTime(7, java.sql.Time.valueOf(request.getPickupTime()));
+            pstmt.setDate(6, java.sql.Date.valueOf(request.getRequestDate().toString()));
+            pstmt.setTime(7, java.sql.Time.valueOf(request.getPickupTime().toString()));
             pstmt.setString(8, request.getStatus());
             pstmt.setInt(9, request.getRequestID());
 
