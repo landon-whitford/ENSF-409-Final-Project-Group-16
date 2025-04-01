@@ -69,8 +69,8 @@ public class DataAccessManager {
             pstmt.setString(3, request.getDropOffLocation());
             pstmt.setInt(4, request.getPassengerCount());
             pstmt.setString(5, request.getSpecialRequirements());
-            pstmt.setDate(6, java.sql.Date.valueOf(request.getRequestDate()));
-            pstmt.setTime(7, java.sql.Time.valueOf(request.getPickupTime()));
+            pstmt.setDate(6, java.sql.Date.valueOf(request.getRequestDate().toString()));
+            pstmt.setTime(7, java.sql.Time.valueOf(request.getPickupTime().toString()));
             pstmt.setString(8, request.getStatus());
 
             try (ResultSet rs = pstmt.executeQuery()) {
@@ -96,8 +96,9 @@ public class DataAccessManager {
             pstmt.setString(3, request.getDropOffLocation());
             pstmt.setInt(4, request.getPassengerCount());
             pstmt.setString(5, request.getSpecialRequirements());
-            pstmt.setDate(6, java.sql.Date.valueOf(request.getRequestDate()));
-            pstmt.setTime(7, java.sql.Time.valueOf(request.getPickupTime()));
+            pstmt.setDate(6, java.sql.Date.valueOf(request.getRequestDate().toString()
+            ));
+            pstmt.setTime(7, java.sql.Time.valueOf(request.getPickupTime().toString()));
             pstmt.setString(8, request.getStatus());
             pstmt.setInt(9, request.getRequestID());
 
@@ -239,7 +240,7 @@ public class DataAccessManager {
         vehicle.setCurrentLocation(rs.getString("CurrentLocation"));
 
         java.sql.Date sqlDate = rs.getDate("MaintenanceDueDate");
-        vehicle.setMaintenanceDueDate(sqlDate.toLocalDate());
+        vehicle.setMaintenanceDueDate(sqlDate);
 
         return vehicle;
     }
@@ -380,8 +381,8 @@ public class DataAccessManager {
             pstmt.setInt(1, schedule.getDriver().getDriverID());
             pstmt.setInt(2, schedule.getVehicle().getVehicleID());
             pstmt.setInt(3, schedule.getRideRequest().getRequestID());
-            pstmt.setDate(4, java.sql.Date.valueOf(schedule.getDate()));
-            pstmt.setTime(5, java.sql.Time.valueOf(schedule.getTime()));
+            pstmt.setDate(4, java.sql.Date.valueOf(schedule.getDate().toString()));
+            pstmt.setTime(5, java.sql.Time.valueOf(schedule.getTime().toString()));
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
@@ -402,8 +403,8 @@ public class DataAccessManager {
             pstmt.setInt(1, schedule.getDriver().getDriverID());
             pstmt.setInt(2, schedule.getVehicle().getVehicleID());
             pstmt.setInt(3, schedule.getRideRequest().getRequestID());
-            pstmt.setDate(4, java.sql.Date.valueOf(schedule.getDate()));
-            pstmt.setTime(5, java.sql.Time.valueOf(schedule.getTime()));
+            pstmt.setDate(4, java.sql.Date.valueOf(schedule.getDate().toString()));
+            pstmt.setTime(5, java.sql.Time.valueOf(schedule.getTime().toString()));
             pstmt.setInt(6, schedule.getScheduleID());
 
             int rowsAffected = pstmt.executeUpdate();
@@ -491,10 +492,10 @@ public class DataAccessManager {
         schedule.setRideRequest(request);
 
         java.sql.Date sqlDate = rs.getDate("ScheduledDate");
-        schedule.setDate(sqlDate.toLocalDate());
+        schedule.setDate(sqlDate);
 
         java.sql.Time sqlTime = rs.getTime("ScheduledTime");
-        schedule.setTime(sqlTime.toLocalTime());
+        schedule.setTime(sqlTime);
 
         return schedule;
     }

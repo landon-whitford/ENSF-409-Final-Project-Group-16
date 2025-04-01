@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="Data access manager with vehicle methods">
+    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="Data access manager with all methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/DataAccessManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/DataAccessManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/RideRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/RideRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742927089412</updated>
       <workItem from="1742927090799" duration="69000" />
-      <workItem from="1743531970771" duration="8443000" />
+      <workItem from="1743531970771" duration="10193000" />
     </task>
     <task id="LOCAL-00001" summary="Data access manager with rr methods">
       <option name="closed" value="true" />
@@ -112,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743539211944</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Data access manager with all methods">
+      <option name="closed" value="true" />
+      <created>1743540498377</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743540498377</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +132,7 @@
     <MESSAGE value="What is commit?" />
     <MESSAGE value="Data access manager with rr methods" />
     <MESSAGE value="Data access manager with vehicle methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Data access manager with vehicle methods" />
+    <MESSAGE value="Data access manager with all methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Data access manager with all methods" />
   </component>
 </project>

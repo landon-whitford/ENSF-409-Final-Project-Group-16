@@ -10,10 +10,10 @@ public class Schedule {
     Driver driver;
     Vehicle vehicle;
     RideRequest rideRequest;
-    LocalDate scheduledDate;
-    LocalTime scheduledTime;
+    Date scheduledDate;
+    Time scheduledTime;
 
-    public Schedule(int scheduleID, Driver driver, Vehicle vehicle, RideRequest rideRequest, LocalDate scheduledDate, LocalTime scheduledTime) {
+    public Schedule(int scheduleID, Driver driver, Vehicle vehicle, RideRequest rideRequest, Date scheduledDate, Time scheduledTime) {
         setScheduleID(scheduleID);
         setDriver(driver);
         setVehicle(vehicle);
@@ -40,11 +40,11 @@ public class Schedule {
         this.rideRequest = rideRequest;
     }
         
-    public void setDate(LocalDate scheduledDate) {
+    public void setDate(Date scheduledDate) {
         this.scheduledDate = scheduledDate;
     }
         
-    public void setTime(LocalTime scheduledTime) {
+    public void setTime(Time scheduledTime) {
         this.scheduledTime = scheduledTime;
     }
 
@@ -64,12 +64,12 @@ public class Schedule {
         return this.rideRequest;
     }
         
-    public String getDate() {
-        return this.scheduledDate.toString();
+    public Date getDate() {
+        return this.scheduledDate;
     }
         
-    public String getTime() {
-        return this.scheduledTime.toString();
+    public Date getTime() {
+        return this.scheduledTime;
     }
    
 }
