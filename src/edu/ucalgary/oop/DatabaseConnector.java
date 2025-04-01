@@ -10,7 +10,7 @@ import java.sql.SQLException;
  */
 public class DatabaseConnector {
     // Database connection parameters
-    private static final String URL = "jdbc:postgresql://localhost/AccessibleTransportation";
+    private static final String URL = "jdbc:postgresql://localhost/accessibletransportation";
     private static final String USERNAME = "oop";
     private static final String PASSWORD = "ucalgary";
 
