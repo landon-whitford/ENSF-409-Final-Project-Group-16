@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/SchedulingService.java" afterDir="false" />
+    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="no errors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +20,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="DatabaseConnector" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -65,6 +59,11 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
   }
 }</component>
   <component name="SharedIndexes">
@@ -84,15 +83,34 @@
       <option name="presentableId" value="Default" />
       <updated>1742927089412</updated>
       <workItem from="1742927090799" duration="69000" />
-      <workItem from="1743531970771" duration="3201000" />
+      <workItem from="1743531970771" duration="6697000" />
     </task>
+    <task id="LOCAL-00001" summary="Data access manager with rr methods">
+      <option name="closed" value="true" />
+      <created>1743535259465</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743535259465</updated>
+    </task>
+    <task id="LOCAL-00002" summary="no errors">
+      <option name="closed" value="true" />
+      <created>1743541777162</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743541777162</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Data access manager with rr methods" />
     <MESSAGE value="What is commit?" />
-    <option name="LAST_COMMIT_MESSAGE" value="What is commit?" />
+    <MESSAGE value="no errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="no errors" />
   </component>
 </project>

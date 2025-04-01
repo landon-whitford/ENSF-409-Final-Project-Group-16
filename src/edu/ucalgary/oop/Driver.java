@@ -13,30 +13,6 @@ public class Driver {
             this.isAvailable = true; // Default to available
         }
 
-        // Essential fields constructor
-        public Driver(String name, String phoneNumber, String licenseNumber) {
-            this.driverName = name;
-            this.phoneNumber = phoneNumber;
-            this.licenseNumber = licenseNumber;
-            this.isAvailable = true; // Default to available
-        }
-
-        // Full constructor without ID (for new entries)
-        public Driver(String name, String phoneNumber, String licenseNumber, boolean isAvailable) {
-            this.driverName = name;
-            this.phoneNumber = phoneNumber;
-            this.licenseNumber = licenseNumber;
-            this.isAvailable = isAvailable;
-        }
-
-        // Full constructor with ID (for database retrieval)
-        public Driver(int driverID, String name, String phoneNumber, String licenseNumber, boolean isAvailable) {
-            this.driverID = driverID;
-            this.driverName = name;
-            this.phoneNumber = phoneNumber;
-            this.licenseNumber = licenseNumber;
-            this.isAvailable = isAvailable;
-        }
 
         //getter methods
         public int getDriverID() {
