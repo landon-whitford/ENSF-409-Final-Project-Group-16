@@ -243,4 +243,114 @@ public class DataAccessManager {
 
         return vehicle;
     }
+    //------------------------------------------------------------
+    // Driver methods
+    //------------------------------------------------------------
+
+    public List<Driver> getAllDrivers() throws SQLException {
+        List<Driver> drivers = new ArrayList<>();
+        String query = "SELECT * FROM Drivers";
+
+        try (Statement stmt = dbConnection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+
+            while (rs.next()) {
+                Driver driver = mapResultSetToDriver(rs);
+                drivers.add(driver);
+            }
+        }
+
+        return drivers;
+    }
+
+    public Driver getDriverById(int id) throws SQLException {
+        String query = "SELECT * FROM Drivers WHERE DriverID = ?";
+
+        try (PreparedStatement pstmt = dbConnection.prepareStatement(query)) {
+            pstmt.setInt(1, id);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return mapResultSetToDriver(rs);
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public List<Driver> getAvailableDrivers(LocalDate date, LocalTime startTime,
+                                            LocalTime endTime) throws SQLException {
+        List<Driver> availableDrivers = new ArrayList<>();
+
+        // First get all drivers that are marked as available
+        String query = "SELECT * FROM Drivers WHERE IsAvailable = TRUE";
+
+        try (PreparedStatement pstmt = dbConnection.prepareStatement(query)) {
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Driver driver = mapResultSetToDriver(rs);
+
+                    // Check if this driver is already scheduled during the requested time
+                    if (!isDriverScheduled(driver.getDriverID(), date, startTime, endTime)) {
+                        availableDrivers.add(driver);
+                    }
+                }
+            }
+        }
+
+        return availableDrivers;
+    }
+
+    private boolean isDriverScheduled(int driverId, LocalDate date,
+                                      LocalTime startTime, LocalTime endTime) throws SQLException {
+        String query = "SELECT COUNT(*) FROM Schedules s " +
+                "JOIN RideRequests r ON s.RequestID = r.RequestID " +
+                "WHERE s.DriverID = ? AND s.ScheduledDate = ? " +
+                "AND r.Status = 'Scheduled' " +
+                "AND ((s.ScheduledTime <= ? AND CAST(s.ScheduledTime AS TIME) + INTERVAL '30 minutes' >= ?) " +
+                "OR (s.ScheduledTime <= ? AND CAST(s.ScheduledTime AS TIME) + INTERVAL '30 minutes' >= ?))";
+
+        try (PreparedStatement pstmt = dbConnection.prepareStatement(query)) {
+            pstmt.setInt(1, driverId);
+            pstmt.setDate(2, java.sql.Date.valueOf(date));
+            pstmt.setTime(3, java.sql.Time.valueOf(endTime));
+            pstmt.setTime(4, java.sql.Time.valueOf(startTime));
+            pstmt.setTime(5, java.sql.Time.valueOf(startTime));
+            pstmt.setTime(6, java.sql.Time.valueOf(endTime));
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public boolean updateDriverAvailability(int id, boolean isAvailable) throws SQLException {
+        String query = "UPDATE Drivers SET IsAvailable = ? WHERE DriverID = ?";
+
+        try (PreparedStatement pstmt = dbConnection.prepareStatement(query)) {
+            pstmt.setBoolean(1, isAvailable);
+            pstmt.setInt(2, id);
+
+            int rowsAffected = pstmt.executeUpdate();
+            return rowsAffected > 0;
+        }
+    }
+
+    private Driver mapResultSetToDriver(ResultSet rs) throws SQLException {
+        Driver driver = new Driver();
+
+        driver.setDriverID(rs.getInt("DriverID"));
+        driver.setName(rs.getString("Name"));
+        driver.setPhoneNumber(rs.getString("PhoneNumber"));
+        driver.setLicenseNumber(rs.getString("LicenseNumber"));
+        driver.setAvailable(rs.getBoolean("IsAvailable"));
+
+        return driver;
+    }
+
 }
