@@ -20,14 +20,14 @@ import edu.ucalgary.oop.DataAccessManager;
     }
 
     public void createDailyScheduleFile(LocalDate Date) {
-        LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy'_MM'_dd");
-        
+        DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy'_MM'_dd");
+        String fileName = "daily_schedule_" + Date.format(formatter1) + ".txt";
+        File myObj = new File(fileName);
 
-        String fileName = "daily_schedule_" + currentDate.format(formatter) + ".txt";
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("LLLL' dd',' yyyy");
+        String stringDate = Date.format(formatter2);
 
         try { // first try to create the file and catch an exception if unsuccessful
-            File myObj = new File(fileName);
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
             } 
@@ -37,15 +37,20 @@ import edu.ucalgary.oop.DataAccessManager;
         } catch (IOException e) {
             System.err.println("An error occured while creating the daily schedule file.");
             e.printStackTrace();
+            return;
         }
 
-        try {
-            FileWriter myWriter = new FileWriter(fileName);
+        List<Schedule> schedules = dataManager.getSchedulesByDate(Date);
 
+        try(FileWriter myWriter = new FileWriter(myObj)) { // now try to write to the file and catch an exception if unsuccessful
+           myWriter.write("Accesible Transportation Daily Schedule - " + stringDate + "\n\n");
+           
+            
+        } catch (IOException e) {
+            System.err.println("An error occured while creating the daily schedule file.");
+            e.printStackTrace();
+            return;
         }
-
-
-
     }
 
     
