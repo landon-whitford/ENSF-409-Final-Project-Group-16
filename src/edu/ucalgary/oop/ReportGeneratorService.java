@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.File;
 
 import java.io.IOException;
-import java.io.FileOutputStream;
+import java.util.List;
 
 import edu.ucalgary.oop.DataAccessManager;
 
