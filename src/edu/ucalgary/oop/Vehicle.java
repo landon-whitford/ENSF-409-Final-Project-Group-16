@@ -1,5 +1,5 @@
 package edu.ucalgary.oop;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Vehicle {
     private int vehicleID;
@@ -7,10 +7,10 @@ public class Vehicle {
     private int capacity;
     private boolean isWheelchairAccessible;
     private String currentLocation;
-    private Date maintenanceDueDate;
+    private LocalDate maintenanceDueDate;
 
     // Constructor
-    public Vehicle(int vehicleID, String licensePlate, int capacity, boolean isWheelchairAccessible, String currentLocation, Date maintenanceDueDate) {
+    public Vehicle(int vehicleID, String licensePlate, int capacity, boolean isWheelchairAccessible, String currentLocation, LocalDate maintenanceDueDate) {
         this.vehicleID = vehicleID;
         this.licensePlate = licensePlate;
         this.capacity = capacity;
@@ -18,6 +18,8 @@ public class Vehicle {
         this.currentLocation = currentLocation;
         this.maintenanceDueDate = maintenanceDueDate;
     }
+
+    public Vehicle(){}
 
     // Getters
     public int getVehicleID() {
@@ -40,7 +42,7 @@ public class Vehicle {
         return currentLocation;
     }
 
-    public Date getMaintenanceDueDate() {
+    public LocalDate getMaintenanceDueDate() {
         return maintenanceDueDate;
     }
 
@@ -65,7 +67,7 @@ public class Vehicle {
         this.currentLocation = currentLocation;
     }
 
-    public void setMaintenanceDueDate(Date maintenanceDueDate) {
+    public void setMaintenanceDueDate(LocalDate maintenanceDueDate) {
         this.maintenanceDueDate = maintenanceDueDate;
     }
 }

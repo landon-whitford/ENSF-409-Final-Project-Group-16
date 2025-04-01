@@ -138,4 +138,109 @@ public class DataAccessManager {
 
         return request;
     }
+    //------------------------------------------------------------
+    // Vehicle methods
+    //------------------------------------------------------------
+
+    public List<Vehicle> getAllVehicles() throws SQLException {
+        List<Vehicle> vehicles = new ArrayList<>();
+        String query = "SELECT * FROM Vehicles";
+
+        try (Statement stmt = dbConnection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+
+            while (rs.next()) {
+                Vehicle vehicle = mapResultSetToVehicle(rs);
+                vehicles.add(vehicle);
+            }
+        }
+
+        return vehicles;
+    }
+
+    public Vehicle getVehicleById(int id) throws SQLException {
+        String query = "SELECT * FROM Vehicles WHERE VehicleID = ?";
+
+        try (PreparedStatement pstmt = dbConnection.prepareStatement(query)) {
+            pstmt.setInt(1, id);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return mapResultSetToVehicle(rs);
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public List<Vehicle> getAvailableVehicles(LocalDate date, LocalTime startTime,
+                                              LocalTime endTime, boolean needsWheelchair,
+                                              int passengerCount) throws SQLException {
+        List<Vehicle> availableVehicles = new ArrayList<>();
+
+        // First get all vehicles that meet the basic requirements
+        String query = "SELECT * FROM Vehicles WHERE " +
+                "Capacity >= ? AND IsWheelchairAccessible >= ?";
+
+        try (PreparedStatement pstmt = dbConnection.prepareStatement(query)) {
+            pstmt.setInt(1, passengerCount);
+            pstmt.setBoolean(2, needsWheelchair);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Vehicle vehicle = mapResultSetToVehicle(rs);
+
+                    // Check if this vehicle is already scheduled during the requested time
+                    if (!isVehicleScheduled(vehicle.getVehicleID(), date, startTime, endTime)) {
+                        availableVehicles.add(vehicle);
+                    }
+                }
+            }
+        }
+
+        return availableVehicles;
+    }
+
+    private boolean isVehicleScheduled(int vehicleId, LocalDate date,
+                                       LocalTime startTime, LocalTime endTime) throws SQLException {
+        String query = "SELECT COUNT(*) FROM Schedules s " +
+                "JOIN RideRequests r ON s.RequestID = r.RequestID " +
+                "WHERE s.VehicleID = ? AND s.ScheduledDate = ? " +
+                "AND r.Status = 'Scheduled' " +
+                "AND ((s.ScheduledTime <= ? AND CAST(s.ScheduledTime AS TIME) + INTERVAL '30 minutes' >= ?) " +
+                "OR (s.ScheduledTime <= ? AND CAST(s.ScheduledTime AS TIME) + INTERVAL '30 minutes' >= ?))";
+
+        try (PreparedStatement pstmt = dbConnection.prepareStatement(query)) {
+            pstmt.setInt(1, vehicleId);
+            pstmt.setDate(2, java.sql.Date.valueOf(date));
+            pstmt.setTime(3, java.sql.Time.valueOf(endTime));
+            pstmt.setTime(4, java.sql.Time.valueOf(startTime));
+            pstmt.setTime(5, java.sql.Time.valueOf(startTime));
+            pstmt.setTime(6, java.sql.Time.valueOf(endTime));
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private Vehicle mapResultSetToVehicle(ResultSet rs) throws SQLException {
+        Vehicle vehicle = new Vehicle();
+
+        vehicle.setVehicleID(rs.getInt("VehicleID"));
+        vehicle.setLicensePlate(rs.getString("LicensePlate"));
+        vehicle.setCapacity(rs.getInt("Capacity"));
+        vehicle.setWheelchairAccessible(rs.getBoolean("IsWheelchairAccessible"));
+        vehicle.setCurrentLocation(rs.getString("CurrentLocation"));
+
+        java.sql.Date sqlDate = rs.getDate("MaintenanceDueDate");
+        vehicle.setMaintenanceDueDate(sqlDate.toLocalDate());
+
+        return vehicle;
+    }
 }
