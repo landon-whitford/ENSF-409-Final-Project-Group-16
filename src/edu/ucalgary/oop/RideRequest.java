@@ -16,6 +16,26 @@ public class RideRequest {
     private Time pickupTime;
     private String status;
 
+    // Constructors
+    public RideRequest(int requestID, String clientName, String pickUpLocation,
+                       String dropOffLocation, int passengerCount, String specialRequirements,
+                       Date requestDate, Time pickupTime, String status) {
+
+        this.requestID = requestID;
+        this.clientName = clientName;
+        this.pickUpLocation = pickUpLocation;
+        this.dropOffLocation = dropOffLocation;
+        this.passengerCount = passengerCount;
+        this.specialRequirements = specialRequirements;
+        this.requestDate = requestDate;
+        this.pickupTime = pickupTime;
+        this.status = status;
+
+    }
+
+    // Default
+    public RideRequest() {}
+
     // Getter methods
     public int getRequestID() { return this.requestID; }
 

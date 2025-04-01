@@ -19,7 +19,13 @@ public class DataAccessManager {
     }
 
     public void disconnect() throws SQLException {
+        DatabaseConnector.closeConnection();
         this.dbConnection = null;
+    }
+
+    // Getter Methods
+    public Connection getDBConnection() {
+        return this.dbConnection;
     }
 
     //------------------------------------------------------------
