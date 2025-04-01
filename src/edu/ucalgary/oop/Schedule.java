@@ -1,17 +1,18 @@
 package edu.ucalgary.oop;
 
-import java.util.Date;
-import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 public class Schedule {
     int scheduleID;
     Driver driver;
     Vehicle vehicle;
     RideRequest rideRequest;
-    Date scheduledDate;
-    Time scheduledTime;
+    LocalDate scheduledDate;
+    LocalTime scheduledTime;
 
-    public Schedule(int scheduleID, Driver driver, Vehicle vehicle, RideRequest rideRequest, Date scheduledDate, Time scheduledTime) {
+    public Schedule(int scheduleID, Driver driver, Vehicle vehicle, RideRequest rideRequest, LocalDate scheduledDate, LocalTime scheduledTime) {
         setScheduleID(scheduleID);
         setDriver(driver);
         setVehicle(vehicle);
@@ -39,11 +40,11 @@ public class Schedule {
         this.rideRequest = rideRequest;
     }
         
-    public void setDate(Date scheduledDate) {
+    public void setDate(LocalDate scheduledDate) {
         this.scheduledDate = scheduledDate;
     }
         
-    public void setTime(Time scheduledTime) {
+    public void setTime(LocalTime scheduledTime) {
         this.scheduledTime = scheduledTime;
     }
 
@@ -63,11 +64,11 @@ public class Schedule {
         return this.rideRequest;
     }
         
-    public Date getDate() {
+    public LocalDate getDate() {
         return this.scheduledDate;
     }
         
-    public Time getTime() {
+    public LocalTime getTime() {
         return this.scheduledTime;
     }
    

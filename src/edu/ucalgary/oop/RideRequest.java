@@ -2,6 +2,8 @@ package edu.ucalgary.oop;
 
 import java.sql.Time;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class RideRequest {
 
@@ -12,8 +14,8 @@ public class RideRequest {
     private String dropOffLocation;
     private int passengerCount;
     private String specialRequirements;
-    private Date requestDate;
-    private Time pickupTime;
+    private LocalDate requestDate;
+    private LocalTime pickupTime;
     private String status;
 
     // Getter methods
@@ -29,9 +31,9 @@ public class RideRequest {
 
     public String getSpecialRequirements() {return this.specialRequirements;}
 
-    public java.sql.Date getRequestDate() { return this.requestDate; } //  returns Date
+    public LocalDate getRequestDate() { return this.requestDate; } //  returns Date
 
-    public java.sql.Time getPickupTime() { return this.pickupTime; }
+    public LocalTime getPickupTime() { return this.pickupTime; }
 
 
     public String getStatus() {return this.status;}
@@ -49,9 +51,9 @@ public class RideRequest {
 
     public void setSpecialRequirements(String specialRequirements) {this.specialRequirements = specialRequirements;}
 
-    public void setRequestDate(Date requestDate) {this.requestDate = requestDate;}
+    public void setRequestDate(LocalDate requestDate) {this.requestDate = requestDate;}
 
-    public void setPickupTime(Time pickupTime) {this.pickupTime = pickupTime;}
+    public void setPickupTime(LocalTime pickupTime) {this.pickupTime = pickupTime;}
 
     public void setStatus(String status) {this.status = status;}
 }

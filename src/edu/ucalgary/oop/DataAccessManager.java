@@ -129,10 +129,10 @@ public class DataAccessManager {
         request.setSpecialRequirements(rs.getString("SpecialRequirements"));
 
         java.sql.Date sqlDate = rs.getDate("RequestDate");
-        request.setRequestDate(Date.valueOf(sqlDate.toLocalDate()));
+        request.setRequestDate(sqlDate.toLocalDate());
 
         java.sql.Time sqlTime = rs.getTime("PickupTime");
-        request.setPickupTime(Time.valueOf(sqlTime.toLocalTime()));
+        request.setPickupTime(sqlTime.toLocalTime());
 
         request.setStatus(rs.getString("Status"));
 
@@ -492,10 +492,10 @@ public class DataAccessManager {
         schedule.setRideRequest(request);
 
         java.sql.Date sqlDate = rs.getDate("ScheduledDate");
-        schedule.setDate(sqlDate);
+        schedule.setDate(sqlDate.toLocalDate());
 
         java.sql.Time sqlTime = rs.getTime("ScheduledTime");
-        schedule.setTime(sqlTime);
+        schedule.setTime(sqlTime.toLocalTime());
 
         return schedule;
     }

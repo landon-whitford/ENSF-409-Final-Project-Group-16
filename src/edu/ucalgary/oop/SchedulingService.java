@@ -1,10 +1,8 @@
 package edu.ucalgary.oop;
 
 import java.sql.SQLException;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.ZoneId;
 import java.util.*;
 
 public class SchedulingService {
@@ -16,8 +14,8 @@ public class SchedulingService {
 
     public boolean scheduleRideRequest(RideRequest request) {
         try {
-            LocalDate date = convertToLocalDate(request.getRequestDate());
-            LocalTime time = convertToLocalTime(request.getPickupTime());
+            LocalDate date = request.getRequestDate();
+            LocalTime time = request.getPickupTime();
             LocalTime endTime = time.plusMinutes(30);
 
             boolean needsWheelchair = request.getSpecialRequirements().toLowerCase().contains("wheelchair");
@@ -76,8 +74,8 @@ public class SchedulingService {
     }
 
     private boolean isConflict(Driver driver, Vehicle vehicle, RideRequest request) throws SQLException {
-        LocalDate date = convertToLocalDate(request.getRequestDate());
-        LocalTime time = convertToLocalTime(request.getPickupTime());
+        LocalDate date = request.getRequestDate();
+        LocalTime time = request.getPickupTime();
         LocalTime endTime = time.plusMinutes(30);
 
         return !dataManager.getAvailableDrivers(date, time.minusMinutes(30), endTime.plusMinutes(30))
@@ -87,11 +85,5 @@ public class SchedulingService {
                 .stream().anyMatch(v -> v.getVehicleID() == vehicle.getVehicleID());
     }
 
-    private LocalDate convertToLocalDate(java.util.Date date) {
-        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-    }
 
-    private LocalTime convertToLocalTime(Time time) {
-        return time.toLocalTime();
-    }
 }
