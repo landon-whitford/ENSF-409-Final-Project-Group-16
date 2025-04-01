@@ -353,4 +353,152 @@ public class DataAccessManager {
         return driver;
     }
 
+    //------------------------------------------------------------
+    // Schedule methods
+    //------------------------------------------------------------
+
+    public List<Schedule> getAllSchedules() throws SQLException {
+        List<Schedule> schedules = new ArrayList<>();
+        String query = "SELECT * FROM Schedules";
+
+        try (Statement stmt = dbConnection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+
+            while (rs.next()) {
+                Schedule schedule = mapResultSetToSchedule(rs);
+                schedules.add(schedule);
+            }
+        }
+
+        return schedules;
+    }
+
+    public boolean addSchedule(Schedule schedule) throws SQLException {
+        String query = "INSERT INTO Schedules (DriverID, VehicleID, RequestID, " +
+                "ScheduledDate, ScheduledTime) VALUES (?, ?, ?, ?, ?) RETURNING ScheduleID";
+
+        try (PreparedStatement pstmt = dbConnection.prepareStatement(query)) {
+            pstmt.setInt(1, schedule.getDriver().getDriverID());
+            pstmt.setInt(2, schedule.getVehicle().getVehicleID());
+            pstmt.setInt(3, schedule.getRideRequest().getRequestID());
+            pstmt.setDate(4, java.sql.Date.valueOf(schedule.getDate().toString()));
+            pstmt.setTime(5, java.sql.Time.valueOf(schedule.getTime().toString()));
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    schedule.setScheduleID(rs.getInt(1));
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public boolean updateSchedule(Schedule schedule) throws SQLException {
+        String query = "UPDATE Schedules SET DriverID = ?, VehicleID = ?, RequestID = ?, " +
+                "ScheduledDate = ?, ScheduledTime = ? WHERE ScheduleID = ?";
+
+        try (PreparedStatement pstmt = dbConnection.prepareStatement(query)) {
+            pstmt.setInt(1, schedule.getDriver().getDriverID());
+            pstmt.setInt(2, schedule.getVehicle().getVehicleID());
+            pstmt.setInt(3, schedule.getRideRequest().getRequestID());
+            pstmt.setDate(4, java.sql.Date.valueOf(schedule.getDate().toString()));
+            pstmt.setTime(5, java.sql.Time.valueOf(schedule.getTime().toString()));
+            pstmt.setInt(6, schedule.getScheduleID());
+
+            int rowsAffected = pstmt.executeUpdate();
+            return rowsAffected > 0;
+        }
+    }
+
+    public boolean deleteSchedulesByDriverId(int driverId) throws SQLException {
+        String query = "DELETE FROM Schedules WHERE DriverID = ?";
+
+        try (PreparedStatement pstmt = dbConnection.prepareStatement(query)) {
+            pstmt.setInt(1, driverId);
+
+            int rowsAffected = pstmt.executeUpdate();
+            return rowsAffected > 0;
+        }
+    }
+
+    public List<Schedule> getSchedulesByDate(LocalDate date) throws SQLException {
+        List<Schedule> schedules = new ArrayList<>();
+        String query = "SELECT * FROM Schedules WHERE ScheduledDate = ?";
+
+        try (PreparedStatement pstmt = dbConnection.prepareStatement(query)) {
+            pstmt.setDate(1, java.sql.Date.valueOf(date));
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Schedule schedule = mapResultSetToSchedule(rs);
+                    schedules.add(schedule);
+                }
+            }
+        }
+
+        return schedules;
+    }
+
+    public List<Schedule> getSchedulesByDriverId(int driverId) throws SQLException {
+        List<Schedule> schedules = new ArrayList<>();
+        String query = "SELECT * FROM Schedules WHERE DriverID = ?";
+
+        try (PreparedStatement pstmt = dbConnection.prepareStatement(query)) {
+            pstmt.setInt(1, driverId);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Schedule schedule = mapResultSetToSchedule(rs);
+                    schedules.add(schedule);
+                }
+            }
+        }
+
+        return schedules;
+    }
+
+    public List<Schedule> getSchedulesByDateRange(LocalDate startDate, LocalDate endDate) throws SQLException {
+        List<Schedule> schedules = new ArrayList<>();
+        String query = "SELECT * FROM Schedules WHERE ScheduledDate BETWEEN ? AND ?";
+
+        try (PreparedStatement pstmt = dbConnection.prepareStatement(query)) {
+            pstmt.setDate(1, java.sql.Date.valueOf(startDate));
+            pstmt.setDate(2, java.sql.Date.valueOf(endDate));
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Schedule schedule = mapResultSetToSchedule(rs);
+                    schedules.add(schedule);
+                }
+            }
+        }
+
+        return schedules;
+    }
+
+    private Schedule mapResultSetToSchedule(ResultSet rs) throws SQLException {
+        Schedule schedule = new Schedule();
+
+        schedule.setScheduleID(rs.getInt("ScheduleID"));
+
+        Driver driver = getDriverById(rs.getInt("DriverID"));
+        Vehicle vehicle = getVehicleById(rs.getInt("VehicleID"));
+        RideRequest request = getRideRequestById(rs.getInt("RequestID"));
+
+        schedule.setDriver(driver);
+        schedule.setVehicle(vehicle);
+        schedule.setRideRequest(request);
+
+        java.sql.Date sqlDate = rs.getDate("ScheduledDate");
+        schedule.setDate(sqlDate);
+
+        java.sql.Time sqlTime = rs.getTime("ScheduledTime");
+        schedule.setTime(sqlTime);
+
+        return schedule;
+    }
 }
+
+

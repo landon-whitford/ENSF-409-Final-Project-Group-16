@@ -20,6 +20,10 @@ public class Schedule {
         setTime(scheduledTime);
     }
 
+    public Schedule() {
+
+    }
+
     public void setScheduleID(int scheduleID) {
         this.scheduleID = scheduleID;
     }
