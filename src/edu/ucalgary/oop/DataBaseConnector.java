@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class DataBaseConnector {
 
-    public Connection createConnection(String databaseName){
+    public static Connection createConnection(String databaseName){
 
         StringBuilder dBPath = new StringBuilder("jdbc:postgresql://localhost/");
         dBPath.append(databaseName);

@@ -32,7 +32,7 @@ public class RideRequest {
 
     public Time getPickupTime() {return this.pickupTime;}
 
-    public String getStatus() {return this.status;};
+    public String getStatus() {return this.status;}
 
     // Setter Methods
     public void setRequestID(int requestID) { this.requestID = requestID; }

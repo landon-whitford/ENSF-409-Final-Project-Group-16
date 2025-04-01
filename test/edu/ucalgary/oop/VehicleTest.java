@@ -63,17 +63,17 @@ public class VehicleTest {
         testCar3.setCurrentLocation(currentLocation);
         testCar3.setMaintenanceDueDate(maintenanceDueDate);
 
-        assertEquals("Constructor wrongly assigns vehicleID. ",
+        assertEquals("setVehicleID wrongly assigns vehicleID. ",
                 vehicleID, testCar3.getVehicleID());
-        assertEquals("Constructor wrongly assigns licensePlate. ",
+        assertEquals("setLicensePlate wrongly assigns licensePlate. ",
                 licensePlate, testCar3.getLicensePlate());
-        assertEquals("Constructor wrongly assigns capacity. ",
+        assertEquals("setCapacity wrongly assigns capacity. ",
                 capacity, testCar3.getCapacity());
-        assertEquals("Constructor wrongly assigns isWheelChairAccessible. ",
+        assertEquals("setIsWheelchairAccessible wrongly assigns isWheelChairAccessible. ",
                 isWheelchairAccessible, testCar3.getIsWheelchairAccessible());
-        assertEquals("Constructor wrongly assigns currentLocation. ",
+        assertEquals("setCurrentLocation wrongly assigns currentLocation. ",
                 currentLocation, testCar3.getCurrentLocation());
-        assertEquals("Constructor wrongly assigns maintenanceDueDate. ",
+        assertEquals("setMaintenanceDueDate wrongly assigns maintenanceDueDate. ",
                 maintenanceDueDate, testCar3.getMaintenanceDueDate());
 
     }
