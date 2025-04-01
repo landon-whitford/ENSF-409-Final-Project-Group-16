@@ -1,5 +1,8 @@
 package edu.ucalgary.oop;
 
+import java.sql.Time;
+import java.sql.Date;
+
 public class RideRequest {
 
     // Private data Members
@@ -26,11 +29,11 @@ public class RideRequest {
 
     public String getSpecialRequirements() {return this.specialRequirements;}
 
-    public Date getRequestDate() { return this.requestDate;}
+    public String getRequestDate() { return this.requestDate.toString();}
 
-    public Time getPickupTime() {return this.pickupTime;}
+    public String getPickupTime() {return this.pickupTime.toString();}
 
-    public String getStatus() {return this.status};
+    public String getStatus() {return this.status;}
 
     // Setter Methods
     public void setRequestID(int requestID) { this.requestID = requestID; }
