@@ -3,6 +3,7 @@ package edu.ucalgary.oop;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.sql.SQLException;
 
 import java.io.FileWriter;
 import java.io.File;
@@ -40,9 +41,19 @@ import edu.ucalgary.oop.DataAccessManager;
             return;
         }
 
-        List<Schedule> schedules = dataManager.getSchedulesByDate(Date);
+        List<Driver> drivers;
+        List driverIDs;
 
-        try(FileWriter myWriter = new FileWriter(myObj)) { // now try to write to the file and catch an exception if unsuccessful
+
+        try {
+            List<Schedule> schedules = dataManager.getSchedulesByDate(Date);
+        } catch(SQLException e) {
+            System.err.println("An error occured while accessing the schedules for that date.");
+            e.printStackTrace();
+            return;
+        }
+
+        try(FileWriter myWriter = new FileWriter(myObj, true)) { // now try to write to the file and catch an exception if unsuccessful
            myWriter.write("Accesible Transportation Daily Schedule - " + stringDate + "\n\n");
            
             
@@ -52,6 +63,4 @@ import edu.ucalgary.oop.DataAccessManager;
             return;
         }
     }
-
-    
 }
