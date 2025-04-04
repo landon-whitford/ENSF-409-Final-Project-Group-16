@@ -18,7 +18,8 @@ public class SchedulingService {
             LocalTime time = request.getPickupTime();
             LocalTime endTime = time.plusMinutes(30);
 
-            boolean needsWheelchair = request.getSpecialRequirements().toLowerCase().contains("wheelchair");
+            boolean needsWheelchair = request.getSpecialRequirements() != null &&
+                    request.getSpecialRequirements().toLowerCase().contains("wheelchair");
             int passengerCount = request.getPassengerCount();
 
             List<Driver> availableDrivers = dataManager.getAvailableDrivers(date, time.minusMinutes(30), endTime.plusMinutes(30));
@@ -54,17 +55,24 @@ public class SchedulingService {
         try {
             List<Schedule> allSchedules = dataManager.getAllSchedules();
 
+            // Modify schedules for the specific driver
             for (Schedule schedule : allSchedules) {
                 if (schedule.getDriver().getDriverID() == driverId &&
-                        schedule.getRideRequest().getStatus().equalsIgnoreCase("Scheduled")) {
+                        schedule.getRideRequest() != null &&
+                        "Scheduled".equalsIgnoreCase(schedule.getRideRequest().getStatus())) {
                     RideRequest req = schedule.getRideRequest();
                     req.setStatus("Pending");
                     dataManager.updateRideRequest(req);
                 }
             }
 
-            for (RideRequest r : dataManager.getAllRideRequests()) {
-                if (r.getStatus().equalsIgnoreCase("Pending")) {
+            // Attempt to reschedule all pending requests
+            List<RideRequest> pendingRequests = dataManager.getAllRideRequests().stream()
+                    .filter(r -> r != null && "Pending".equalsIgnoreCase(r.getStatus()))
+                    .collect(java.util.stream.Collectors.toList());
+
+            for (RideRequest r : pendingRequests) {
+                if (r != null) {
                     scheduleRideRequest(r);
                 }
             }
@@ -84,6 +92,4 @@ public class SchedulingService {
                         vehicle.isWheelchairAccessible(), request.getPassengerCount())
                 .stream().anyMatch(v -> v.getVehicleID() == vehicle.getVehicleID());
     }
-
-
 }

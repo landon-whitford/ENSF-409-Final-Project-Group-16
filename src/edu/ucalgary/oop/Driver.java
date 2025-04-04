@@ -9,9 +9,7 @@ public class Driver {
 
 
         // Default constructor
-        public Driver() {
-            this.isAvailable = true; // Default to available
-        }
+        public Driver() {}
 
 
         //getter methods
