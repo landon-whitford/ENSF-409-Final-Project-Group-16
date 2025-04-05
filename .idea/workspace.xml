@@ -4,16 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="went ham made test files">
-      <change afterPath="$PROJECT_DIR$/test/edu/ucalgary/oop/CommandLineUITest.java" afterDir="false" />
+    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="All test files done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/DataAccessManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/DataAccessManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/RideRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/RideRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Schedule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Vehicle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Vehicle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/DataAccessManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/DataAccessManagerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/DataAccessManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/DatabaseConnector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Driver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/RideRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Schedule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Vehicle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/CommandLineUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/CommandLineUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/DataAccessManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/DataAccessManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/DatabaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/DatabaseConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/ReportGeneratorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/ReportGeneratorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/RideRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/RideRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/SchedulingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/SchedulingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/TransportationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/TransportationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +80,7 @@
     "JUnit.VehicleTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "testfiles",
+    "git-widget-placeholder": "branch1",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "C:/Users/Andrew/Documents/GitHub/ENSF-409-Final-Project-Group-16/test/edu/ucalgary/oop",
     "node.js.detected.package.eslint": "true",
@@ -105,7 +115,7 @@
       <workItem from="1743531970771" duration="6697000" />
       <workItem from="1743551014512" duration="1780000" />
       <workItem from="1743717804779" duration="7990000" />
-      <workItem from="1743881021675" duration="359000" />
+      <workItem from="1743881021675" duration="7388000" />
     </task>
     <task id="LOCAL-00001" summary="Data access manager with rr methods">
       <option name="closed" value="true" />
@@ -147,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743725954280</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="All test files done">
+      <option name="closed" value="true" />
+      <created>1743881542013</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1743881542013</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +179,18 @@
     <MESSAGE value="transportationcontroller" />
     <MESSAGE value="updated with main to run the program" />
     <MESSAGE value="went ham made test files" />
-    <option name="LAST_COMMIT_MESSAGE" value="went ham made test files" />
+    <MESSAGE value="All test files done" />
+    <option name="LAST_COMMIT_MESSAGE" value="All test files done" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/edu/ucalgary/oop/TransportationController.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

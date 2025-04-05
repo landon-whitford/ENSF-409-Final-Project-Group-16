@@ -7,7 +7,14 @@ import java.sql.SQLException;
 /**
  * DatabaseConnector is a singleton class that manages database connections
  * for the Accessible Transportation Scheduler application.
+ * It provides a centralized connection management facility to ensure
+ * consistent database access throughout the application.
+ *
+ * @author Group 16
+ * @version 1.0
+ * @since 1.0
  */
+
 public class DatabaseConnector {
     // Database connection parameters
     private static final String URL = "jdbc:postgresql://localhost/accessibletransportation";

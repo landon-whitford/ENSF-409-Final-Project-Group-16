@@ -8,6 +8,17 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.sql.SQLException;
 
+/**
+ * The CommandLineUI class implements the UserInterface interface to provide
+ * a text-based command-line interface for the Calgary Access Network
+ * Transportation System. This class handles all user interactions through
+ * the console, including displaying menus, collecting input, and showing
+ * output messages.
+ *
+ * @author Group 16
+ * @version 1.7
+ * @since 1.0
+ */
 public class CommandLineUI implements UserInterface {
     private Scanner scanner;
     private TransportationController controller;
@@ -15,11 +26,20 @@ public class CommandLineUI implements UserInterface {
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
 
+    /**
+     * Constructs a new CommandLineUI with the specified controller.
+     * Initializes the scanner for reading user input.
+     * @param controller the TransportationController that will process user requests
+     */
     public CommandLineUI(TransportationController controller) {
         this.scanner = new Scanner(System.in);
         this.controller = controller;
     }
 
+    /**
+     * Displays the main menu and handles user interaction until the user chooses to exit.
+     * This method is the main entry point for the UI.
+     */
     @Override
     public void displayMenu() {
         boolean exit = false;
@@ -64,6 +84,10 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Displays the ride request management submenu and handles related user interactions.
+     * @throws SQLException if a database error occurs
+     */
     private void handleRideRequestMenu() throws SQLException {
         boolean back = false;
 
@@ -104,6 +128,10 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Displays all ride requests in the system.
+     * @throws SQLException if a database error occurs
+     */
     private void viewAllRideRequests() throws SQLException {
         showMessage("\n--- All Ride Requests ---");
         List<RideRequest> requests = controller.viewAllRideRequests();
@@ -128,6 +156,10 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Collects user input to create and add a new ride request.
+     * @throws SQLException if a database error occurs
+     */
     private void addRideRequest() throws SQLException {
         showMessage("\n--- Add New Ride Request ---");
 
@@ -176,6 +208,10 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Allows the user to modify an existing ride request.
+     * @throws SQLException if a database error occurs
+     */
     private void modifyRideRequest() throws SQLException {
         showMessage("\n--- Modify Ride Request ---");
 
@@ -253,6 +289,10 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Allows the user to cancel a ride request.
+     * @throws SQLException if a database error occurs
+     */
     private void cancelRideRequest() throws SQLException {
         showMessage("\n--- Cancel Ride Request ---");
 
@@ -267,6 +307,10 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Allows the user to mark a ride request as completed.
+     * @throws SQLException if a database error occurs
+     */
     private void completeRideRequest() throws SQLException {
         showMessage("\n--- Complete Ride Request ---");
 
@@ -281,6 +325,10 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Displays the driver management submenu and handles related user interactions.
+     * @throws SQLException if a database error occurs
+     */
     private void handleDriverMenu() throws SQLException {
         boolean back = false;
 
@@ -309,6 +357,10 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Displays all drivers in the system.
+     * @throws SQLException if a database error occurs
+     */
     private void viewAllDrivers() throws SQLException {
         showMessage("\n--- All Drivers ---");
         List<Driver> drivers = controller.viewAllDrivers();
@@ -328,6 +380,10 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Allows the user to update a driver's availability status.
+     * @throws SQLException if a database error occurs
+     */
     private void updateDriverAvailability() throws SQLException {
         showMessage("\n--- Update Driver Availability ---");
 
@@ -360,11 +416,19 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Displays the vehicle information menu and shows all vehicles.
+     * @throws SQLException if a database error occurs
+     */
     private void handleVehicleMenu() throws SQLException {
         showMessage("\n----- Vehicle Information -----");
         viewAllVehicles();
     }
 
+    /**
+     * Displays all vehicles in the system.
+     * @throws SQLException if a database error occurs
+     */
     private void viewAllVehicles() throws SQLException {
         showMessage("\n--- All Vehicles ---");
         List<Vehicle> vehicles = controller.viewAllVehicles();
@@ -385,6 +449,10 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Displays the schedule management submenu and handles related user interactions.
+     * @throws SQLException if a database error occurs
+     */
     private void handleScheduleMenu() throws SQLException {
         boolean back = false;
 
@@ -413,6 +481,10 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Displays all schedules in the system.
+     * @throws SQLException if a database error occurs
+     */
     private void viewAllSchedules() throws SQLException {
         showMessage("\n--- All Schedules ---");
         List<Schedule> schedules = controller.viewAllSchedules();
@@ -435,6 +507,10 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Allows the user to generate a daily schedule file for a specific date.
+     * @throws SQLException if a database error occurs
+     */
     private void generateDailySchedule() throws SQLException {
         showMessage("\n--- Generate Daily Schedule ---");
 
@@ -463,22 +539,39 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
+    /**
+     * Gets input from the user via the console.
+     * @return the user's input as a String
+     */
     @Override
     public String getInput() {
         return scanner.nextLine();
     }
 
+    /**
+     * Displays a message to the user.
+     * @param message the message to display
+     */
     @Override
     public void showMessage(String message) {
         System.out.println(message);
     }
 
+    /**
+     * Displays an error message to the user.
+     * @param error the error message to display
+     */
     @Override
     public void showError(String error) {
         System.err.println("ERROR: " + error);
     }
 
-    // Helper method to get integer input with validation
+    /**
+     * Helper method to get integer input from the user with validation.
+     * Repeatedly prompts until valid input is received.
+     * @param prompt the message to display to the user
+     * @return the validated integer input
+     */
     private int getIntInput(String prompt) {
         while (true) {
             showMessage(prompt);
@@ -490,7 +583,12 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
-    // Helper method to get date input with validation
+    /**
+     * Helper method to get date input from the user with validation.
+     * Repeatedly prompts until valid input is received.
+     * @param prompt the message to display to the user
+     * @return the validated LocalDate input
+     */
     private LocalDate getDateInput(String prompt) {
         while (true) {
             showMessage(prompt);
@@ -502,7 +600,12 @@ public class CommandLineUI implements UserInterface {
         }
     }
 
-    // Helper method to get time input with validation
+    /**
+     * Helper method to get time input from the user with validation.
+     * Repeatedly prompts until valid input is received.
+     * @param prompt the message to display to the user
+     * @return the validated LocalTime input
+     */
     private LocalTime getTimeInput(String prompt) {
         while (true) {
             showMessage(prompt);

@@ -6,18 +6,39 @@ import java.util.List;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/**
+ * The DataAccessManager class handles all database operations for the Accessible Transportation Scheduler.
+ * It provides methods to create, read, update, and delete data for ride requests, vehicles, drivers, and schedules.
+ *
+ * @author Group 16
+ * @version 1.6
+ * @since 1.0
+ */
 public class DataAccessManager {
 
     private Connection dbConnection;
 
+    /**
+     * Constructs a new DataAccessManager and establishes a database connection.
+     * @throws SQLException if a database access error occurs
+     */
     public DataAccessManager() throws SQLException {
         connect();
     }
 
+    /**
+     * Establishes a connection to the database using the DatabaseConnector.
+     * @throws SQLException if a database access error occurs
+     */
     public void connect() throws SQLException {
         this.dbConnection = DatabaseConnector.getConnection();
     }
 
+    /**
+     * Disconnects from the database by setting the connection to null.
+     * Note: This doesn't actually close the connection, as that's handled by the DatabaseConnector.
+     * @throws SQLException if a database access error occurs
+     */
     public void disconnect() throws SQLException {
         this.dbConnection = null;
     }
@@ -26,6 +47,11 @@ public class DataAccessManager {
     // RideRequest methods
     //------------------------------------------------------------
 
+    /**
+     * Retrieves all ride requests from the database.
+     * @return a List of RideRequest objects
+     * @throws SQLException if a database access error occurs
+     */
     public List<RideRequest> getAllRideRequests() throws SQLException {
         List<RideRequest> requests = new ArrayList<>();
         String query = "SELECT * FROM RideRequests";
@@ -42,6 +68,12 @@ public class DataAccessManager {
         return requests;
     }
 
+    /**
+     * Retrieves a specific ride request by its ID.
+     * @param id the ID of the ride request to retrieve
+     * @return the RideRequest object, or null if not found
+     * @throws SQLException if a database access error occurs
+     */
     public RideRequest getRideRequestById(int id) throws SQLException {
         String query = "SELECT * FROM RideRequests WHERE RequestID = ?";
 
@@ -58,6 +90,12 @@ public class DataAccessManager {
         return null;
     }
 
+    /**
+     * Adds a new ride request to the database.
+     * @param request the RideRequest object to add
+     * @return true if successfully added, false otherwise
+     * @throws SQLException if a database access error occurs
+     */
     public boolean addRideRequest(RideRequest request) throws SQLException {
         String query = "INSERT INTO RideRequests (ClientName, PickupLocation, DropoffLocation, " +
                 "PassengerCount, SpecialRequirements, RequestDate, PickupTime, Status) " +
@@ -92,6 +130,12 @@ public class DataAccessManager {
         return false;
     }
 
+    /**
+     * Updates an existing ride request in the database.
+     * @param request the RideRequest object with updated information
+     * @return true if successfully updated, false otherwise
+     * @throws SQLException if a database access error occurs
+     */
     public boolean updateRideRequest(RideRequest request) throws SQLException {
         String query = "UPDATE RideRequests SET ClientName = ?, PickupLocation = ?, " +
                 "DropoffLocation = ?, PassengerCount = ?, SpecialRequirements = ?, " +
@@ -122,6 +166,13 @@ public class DataAccessManager {
         }
     }
 
+    /**
+     * Updates the status of a ride request.
+     * @param id the ID of the ride request to update
+     * @param status the new status value
+     * @return true if successfully updated, false otherwise
+     * @throws SQLException if a database access error occurs
+     */
     public boolean updateRideStatus(int id, String status) throws SQLException {
         String query = "UPDATE RideRequests SET Status = ? WHERE RequestID = ?";
 
@@ -134,6 +185,12 @@ public class DataAccessManager {
         }
     }
 
+    /**
+     * Maps a ResultSet row to a RideRequest object.
+     * @param rs the ResultSet containing ride request data
+     * @return a populated RideRequest object
+     * @throws SQLException if a database access error occurs
+     */
     private RideRequest mapResultSetToRideRequest(ResultSet rs) throws SQLException {
         RideRequest request = new RideRequest();
 
@@ -154,10 +211,16 @@ public class DataAccessManager {
 
         return request;
     }
+
     //------------------------------------------------------------
     // Vehicle methods
     //------------------------------------------------------------
 
+    /**
+     * Retrieves all vehicles from the database.
+     * @return a List of Vehicle objects
+     * @throws SQLException if a database access error occurs
+     */
     public List<Vehicle> getAllVehicles() throws SQLException {
         List<Vehicle> vehicles = new ArrayList<>();
         String query = "SELECT * FROM Vehicles";
@@ -174,6 +237,12 @@ public class DataAccessManager {
         return vehicles;
     }
 
+    /**
+     * Retrieves a specific vehicle by its ID.
+     * @param id the ID of the vehicle to retrieve
+     * @return the Vehicle object, or null if not found
+     * @throws SQLException if a database access error occurs
+     */
     public Vehicle getVehicleById(int id) throws SQLException {
         String query = "SELECT * FROM Vehicles WHERE VehicleID = ?";
 
@@ -190,6 +259,16 @@ public class DataAccessManager {
         return null;
     }
 
+    /**
+     * Retrieves available vehicles that meet specific requirements during a given time period.
+     * @param date the date for which to check availability
+     * @param startTime the start time of the period
+     * @param endTime the end time of the period
+     * @param needsWheelchair whether wheelchair accessibility is required
+     * @param passengerCount the minimum required passenger capacity
+     * @return a List of available Vehicle objects meeting the criteria
+     * @throws SQLException if a database access error occurs
+     */
     public List<Vehicle> getAvailableVehicles(LocalDate date, LocalTime startTime,
                                               LocalTime endTime, boolean needsWheelchair,
                                               int passengerCount) throws SQLException {
@@ -218,6 +297,15 @@ public class DataAccessManager {
         return availableVehicles;
     }
 
+    /**
+     * Checks if a vehicle is already scheduled during a specific time period.
+     * @param vehicleId the ID of the vehicle to check
+     * @param date the date to check
+     * @param startTime the start time of the period
+     * @param endTime the end time of the period
+     * @return true if the vehicle is already scheduled, false otherwise
+     * @throws SQLException if a database access error occurs
+     */
     private boolean isVehicleScheduled(int vehicleId, LocalDate date,
                                        LocalTime startTime, LocalTime endTime) throws SQLException {
         String query = "SELECT COUNT(*) FROM Schedules s " +
@@ -245,6 +333,12 @@ public class DataAccessManager {
         return false;
     }
 
+    /**
+     * Maps a ResultSet row to a Vehicle object.
+     * @param rs the ResultSet containing vehicle data
+     * @return a populated Vehicle object
+     * @throws SQLException if a database access error occurs
+     */
     private Vehicle mapResultSetToVehicle(ResultSet rs) throws SQLException {
         Vehicle vehicle = new Vehicle();
 
@@ -259,10 +353,16 @@ public class DataAccessManager {
 
         return vehicle;
     }
+
     //------------------------------------------------------------
     // Driver methods
     //------------------------------------------------------------
 
+    /**
+     * Retrieves all drivers from the database.
+     * @return a List of Driver objects
+     * @throws SQLException if a database access error occurs
+     */
     public List<Driver> getAllDrivers() throws SQLException {
         List<Driver> drivers = new ArrayList<>();
         String query = "SELECT * FROM Drivers";
@@ -279,6 +379,12 @@ public class DataAccessManager {
         return drivers;
     }
 
+    /**
+     * Retrieves a specific driver by ID.
+     * @param id the ID of the driver to retrieve
+     * @return the Driver object, or null if not found
+     * @throws SQLException if a database access error occurs
+     */
     public Driver getDriverById(int id) throws SQLException {
         String query = "SELECT * FROM Drivers WHERE DriverID = ?";
 
@@ -295,6 +401,14 @@ public class DataAccessManager {
         return null;
     }
 
+    /**
+     * Retrieves available drivers during a specific time period.
+     * @param date the date for which to check availability
+     * @param startTime the start time of the period
+     * @param endTime the end time of the period
+     * @return a List of available Driver objects
+     * @throws SQLException if a database access error occurs
+     */
     public List<Driver> getAvailableDrivers(LocalDate date, LocalTime startTime,
                                             LocalTime endTime) throws SQLException {
         List<Driver> availableDrivers = new ArrayList<>();
@@ -318,6 +432,15 @@ public class DataAccessManager {
         return availableDrivers;
     }
 
+    /**
+     * Checks if a driver is already scheduled during a specific time period.
+     * @param driverId the ID of the driver to check
+     * @param date the date to check
+     * @param startTime the start time of the period
+     * @param endTime the end time of the period
+     * @return true if the driver is already scheduled, false otherwise
+     * @throws SQLException if a database access error occurs
+     */
     private boolean isDriverScheduled(int driverId, LocalDate date,
                                       LocalTime startTime, LocalTime endTime) throws SQLException {
         String query = "SELECT COUNT(*) FROM Schedules s " +
@@ -345,6 +468,13 @@ public class DataAccessManager {
         return false;
     }
 
+    /**
+     * Updates a driver's availability status.
+     * @param id the ID of the driver to update
+     * @param isAvailable the new availability status
+     * @return true if successfully updated, false otherwise
+     * @throws SQLException if a database access error occurs
+     */
     public boolean updateDriverAvailability(int id, boolean isAvailable) throws SQLException {
         String query = "UPDATE Drivers SET IsAvailable = ? WHERE DriverID = ?";
 
@@ -357,6 +487,12 @@ public class DataAccessManager {
         }
     }
 
+    /**
+     * Maps a ResultSet row to a Driver object.
+     * @param rs the ResultSet containing driver data
+     * @return a populated Driver object
+     * @throws SQLException if a database access error occurs
+     */
     private Driver mapResultSetToDriver(ResultSet rs) throws SQLException {
         Driver driver = new Driver();
 
@@ -373,6 +509,11 @@ public class DataAccessManager {
     // Schedule methods
     //------------------------------------------------------------
 
+    /**
+     * Retrieves all schedules from the database.
+     * @return a List of Schedule objects
+     * @throws SQLException if a database access error occurs
+     */
     public List<Schedule> getAllSchedules() throws SQLException {
         List<Schedule> schedules = new ArrayList<>();
         String query = "SELECT * FROM Schedules";
@@ -389,6 +530,12 @@ public class DataAccessManager {
         return schedules;
     }
 
+    /**
+     * Adds a new schedule to the database.
+     * @param schedule the Schedule object to add
+     * @return true if successfully added, false otherwise
+     * @throws SQLException if a database access error occurs
+     */
     public boolean addSchedule(Schedule schedule) throws SQLException {
         String query = "INSERT INTO Schedules (DriverID, VehicleID, RequestID, " +
                 "ScheduledDate, ScheduledTime) VALUES (?, ?, ?, ?, ?) RETURNING ScheduleID";
@@ -411,6 +558,12 @@ public class DataAccessManager {
         return false;
     }
 
+    /**
+     * Updates an existing schedule in the database.
+     * @param schedule the Schedule object with updated information
+     * @return true if successfully updated, false otherwise
+     * @throws SQLException if a database access error occurs
+     */
     public boolean updateSchedule(Schedule schedule) throws SQLException {
         String query = "UPDATE Schedules SET DriverID = ?, VehicleID = ?, RequestID = ?, " +
                 "ScheduledDate = ?, ScheduledTime = ? WHERE ScheduleID = ?";
@@ -428,6 +581,12 @@ public class DataAccessManager {
         }
     }
 
+    /**
+     * Deletes all schedules for a specific driver.
+     * @param driverId the ID of the driver whose schedules should be deleted
+     * @return true if any schedules were deleted, false otherwise
+     * @throws SQLException if a database access error occurs
+     */
     public boolean deleteSchedulesByDriverId(int driverId) throws SQLException {
         String query = "DELETE FROM Schedules WHERE DriverID = ?";
 
@@ -439,6 +598,12 @@ public class DataAccessManager {
         }
     }
 
+    /**
+     * Retrieves all schedules for a specific date.
+     * @param date the date for which to retrieve schedules
+     * @return a List of Schedule objects
+     * @throws SQLException if a database access error occurs
+     */
     public List<Schedule> getSchedulesByDate(LocalDate date) throws SQLException {
         List<Schedule> schedules = new ArrayList<>();
         String query = "SELECT * FROM Schedules WHERE ScheduledDate = ?";
@@ -457,6 +622,12 @@ public class DataAccessManager {
         return schedules;
     }
 
+    /**
+     * Retrieves all schedules for a specific driver.
+     * @param driverId the ID of the driver for whom to retrieve schedules
+     * @return a List of Schedule objects
+     * @throws SQLException if a database access error occurs
+     */
     public List<Schedule> getSchedulesByDriverId(int driverId) throws SQLException {
         List<Schedule> schedules = new ArrayList<>();
         String query = "SELECT * FROM Schedules WHERE DriverID = ?";
@@ -475,6 +646,13 @@ public class DataAccessManager {
         return schedules;
     }
 
+    /**
+     * Retrieves all schedules within a date range.
+     * @param startDate the beginning of the date range (inclusive)
+     * @param endDate the end of the date range (inclusive)
+     * @return a List of Schedule objects
+     * @throws SQLException if a database access error occurs
+     */
     public List<Schedule> getSchedulesByDateRange(LocalDate startDate, LocalDate endDate) throws SQLException {
         List<Schedule> schedules = new ArrayList<>();
         String query = "SELECT * FROM Schedules WHERE ScheduledDate BETWEEN ? AND ?";
@@ -494,6 +672,12 @@ public class DataAccessManager {
         return schedules;
     }
 
+    /**
+     * Maps a ResultSet row to a Schedule object.
+     * @param rs the ResultSet containing schedule data
+     * @return a populated Schedule object
+     * @throws SQLException if a database access error occurs
+     */
     private Schedule mapResultSetToSchedule(ResultSet rs) throws SQLException {
         Schedule schedule = new Schedule();
 
@@ -516,5 +700,3 @@ public class DataAccessManager {
         return schedule;
     }
 }
-
-
