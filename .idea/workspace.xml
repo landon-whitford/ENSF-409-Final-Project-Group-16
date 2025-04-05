@@ -4,26 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="All test files done">
+    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="java doc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/DataAccessManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/DatabaseConnector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Driver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/RideRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Schedule.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Vehicle.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/CommandLineUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/CommandLineUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/DataAccessManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/DataAccessManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/DatabaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/DatabaseConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/ReportGeneratorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/ReportGeneratorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/RideRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/RideRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/SchedulingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/SchedulingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/TransportationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/TransportationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,35 +50,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.CommandLineUITest.executor": "Run",
-    "JUnit.DataAccessManagerTest.executor": "Run",
-    "JUnit.DatabaseConnectorTest.executor": "Run",
-    "JUnit.DriverTest.executor": "Run",
-    "JUnit.ReportGeneratorServiceTest.executor": "Run",
-    "JUnit.RideRequestTest.executor": "Run",
-    "JUnit.ScheduleTest.executor": "Run",
-    "JUnit.SchedulingServiceTest.executor": "Run",
-    "JUnit.TransportationControllerTest.executor": "Run",
-    "JUnit.VehicleTest.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "branch1",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/Andrew/Documents/GitHub/ENSF-409-Final-Project-Group-16/test/edu/ucalgary/oop",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.CommandLineUITest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DataAccessManagerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseConnectorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DriverTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReportGeneratorServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RideRequestTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ScheduleTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SchedulingServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TransportationControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VehicleTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;branch1&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Andrew/Documents/GitHub/ENSF-409-Final-Project-Group-16/test/edu/ucalgary/oop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="All in ENSF-409-Final-Project-Group-16" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ENSF-409-Final-Project-Group-16" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in ENSF-409-Final-Project-Group-16" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -115,7 +114,8 @@
       <workItem from="1743531970771" duration="6697000" />
       <workItem from="1743551014512" duration="1780000" />
       <workItem from="1743717804779" duration="7990000" />
-      <workItem from="1743881021675" duration="7388000" />
+      <workItem from="1743881021675" duration="7569000" />
+      <workItem from="1743891761047" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="Data access manager with rr methods">
       <option name="closed" value="true" />
@@ -165,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743881542013</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="java doc">
+      <option name="closed" value="true" />
+      <created>1743891570995</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743891570995</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +188,8 @@
     <MESSAGE value="updated with main to run the program" />
     <MESSAGE value="went ham made test files" />
     <MESSAGE value="All test files done" />
-    <option name="LAST_COMMIT_MESSAGE" value="All test files done" />
+    <MESSAGE value="java doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="java doc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

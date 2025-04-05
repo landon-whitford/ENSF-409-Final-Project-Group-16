@@ -19,6 +19,7 @@ import java.sql.SQLException;
  * @version 1.7
  * @since 1.0
  */
+
 public class CommandLineUI implements UserInterface {
     private Scanner scanner;
     private TransportationController controller;
@@ -31,6 +32,7 @@ public class CommandLineUI implements UserInterface {
      * Initializes the scanner for reading user input.
      * @param controller the TransportationController that will process user requests
      */
+
     public CommandLineUI(TransportationController controller) {
         this.scanner = new Scanner(System.in);
         this.controller = controller;
