@@ -69,8 +69,19 @@ public class DataAccessManager {
             pstmt.setString(3, request.getDropOffLocation());
             pstmt.setInt(4, request.getPassengerCount());
             pstmt.setString(5, request.getSpecialRequirements());
-            pstmt.setDate(6, java.sql.Date.valueOf(request.getRequestDate().toString()));
-            pstmt.setTime(7, java.sql.Time.valueOf(request.getPickupTime().toString()));
+
+            if (request.getPickupTime() != null) {
+                pstmt.setTime(7, java.sql.Time.valueOf(request.getPickupTime()));
+            } else {
+                pstmt.setNull(7, java.sql.Types.TIME);
+            }
+
+            if (request.getRequestDate() != null) {
+                pstmt.setDate(6, java.sql.Date.valueOf(request.getRequestDate()));
+            } else {
+                pstmt.setNull(6, java.sql.Types.DATE);
+            }
+
             pstmt.setString(8, request.getStatus());
 
             try (ResultSet rs = pstmt.executeQuery()) {
@@ -96,8 +107,19 @@ public class DataAccessManager {
             pstmt.setString(3, request.getDropOffLocation());
             pstmt.setInt(4, request.getPassengerCount());
             pstmt.setString(5, request.getSpecialRequirements());
-            pstmt.setDate(6, java.sql.Date.valueOf(request.getRequestDate().toString()));
-            pstmt.setTime(7, java.sql.Time.valueOf(request.getPickupTime().toString()));
+
+            if (request.getRequestDate() != null) {
+                pstmt.setDate(6, java.sql.Date.valueOf(request.getRequestDate()));
+            } else {
+                pstmt.setNull(6, java.sql.Types.DATE);
+            }
+
+            if (request.getPickupTime() != null) {
+                pstmt.setTime(7, java.sql.Time.valueOf(request.getPickupTime()));
+            } else {
+                pstmt.setNull(7, java.sql.Types.TIME);
+            }
+
             pstmt.setString(8, request.getStatus());
             pstmt.setInt(9, request.getRequestID());
 
@@ -381,8 +403,19 @@ public class DataAccessManager {
             pstmt.setInt(1, schedule.getDriver().getDriverID());
             pstmt.setInt(2, schedule.getVehicle().getVehicleID());
             pstmt.setInt(3, schedule.getRideRequest().getRequestID());
-            pstmt.setDate(4, java.sql.Date.valueOf(schedule.getDate().toString()));
-            pstmt.setTime(5, java.sql.Time.valueOf(schedule.getTime().toString()));
+
+            if (schedule.getDate() != null) {
+                pstmt.setDate(4, java.sql.Date.valueOf(schedule.getDate()));
+            } else {
+                pstmt.setNull(4, java.sql.Types.DATE);
+            }
+
+            if (schedule.getTime() != null) {
+                pstmt.setTime(5, java.sql.Time.valueOf(schedule.getTime()));
+            } else {
+                pstmt.setNull(5, java.sql.Types.TIME);
+            }
+
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {

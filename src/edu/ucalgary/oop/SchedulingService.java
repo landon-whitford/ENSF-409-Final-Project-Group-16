@@ -18,7 +18,9 @@ public class SchedulingService {
             LocalTime time = request.getPickupTime();
             LocalTime endTime = time.plusMinutes(30);
 
-            boolean needsWheelchair = request.getSpecialRequirements().toLowerCase().contains("wheelchair");
+            String specialReqs = request.getSpecialRequirements();
+            boolean needsWheelchair = specialReqs != null && specialReqs.toLowerCase().contains("wheelchair");
+
             int passengerCount = request.getPassengerCount();
 
             List<Driver> availableDrivers = dataManager.getAvailableDrivers(date, time.minusMinutes(30), endTime.plusMinutes(30));

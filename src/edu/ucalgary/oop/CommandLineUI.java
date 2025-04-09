@@ -60,6 +60,7 @@ public class CommandLineUI implements UserInterface {
                 }
             } catch (Exception e) {
                 showError("An error occurred: " + e.getMessage());
+                e.printStackTrace();
             }
         }
     }
