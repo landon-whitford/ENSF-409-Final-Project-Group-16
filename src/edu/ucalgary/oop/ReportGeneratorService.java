@@ -12,6 +12,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The ReportGeneratorService class is responsible for generating and writing
+ * formatted reports for the Accessible Transportation System, including daily
+ * schedules and weekly summary reports.
+ * Reports are written to text files with standardized formatting and content
+ * based on the requirements of the Calgary Access Network organization.
+ *
+ * @author Group 16
+ * @version 1.2
+ * @since 1.0
+ */
+
 public class ReportGeneratorService {
 
     private DataAccessManager dataManager;
@@ -22,7 +34,6 @@ public class ReportGeneratorService {
 
     /**
      * Creates a daily schedule file for the specified date
-     *
      * @param date The date for which to generate the schedule
      * @return true if the file was created successfully, false otherwise
      */
@@ -105,7 +116,6 @@ public class ReportGeneratorService {
 
     /**
      * Creates a weekly report file for the week containing the specified date
-     *
      * @param date Any date within the week for which to generate the report
      * @return true if the file was created successfully, false otherwise
      */
