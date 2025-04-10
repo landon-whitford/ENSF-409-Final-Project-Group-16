@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="transportationcontroller">
+    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="Fixed bugs cqausing null errors (no documentation)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/DataAccessManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/DataAccessManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/RideRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/RideRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Schedule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Vehicle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF-409-Final-Project-Group-16/edu/ucalgary/oop/Vehicle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/CommandLineUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/CommandLineUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/DataAccessManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/DataAccessManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/SchedulingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/SchedulingService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,6 +89,8 @@
       <workItem from="1743551014512" duration="1780000" />
       <workItem from="1744168012871" duration="5395000" />
       <workItem from="1744175384254" duration="126000" />
+      <workItem from="1744242210211" duration="874000" />
+      <workItem from="1744259674485" duration="300000" />
     </task>
     <task id="LOCAL-00001" summary="Data access manager with rr methods">
       <option name="closed" value="true" />
@@ -130,11 +124,30 @@
       <option name="project" value="LOCAL" />
       <updated>1743716492479</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed bugs cqausing null errors (no documentation)">
+      <option name="closed" value="true" />
+      <created>1744242452675</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1744242452675</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Data access manager with rr methods" />
@@ -142,6 +155,7 @@
     <MESSAGE value="no errors" />
     <MESSAGE value="completed report generator class" />
     <MESSAGE value="transportationcontroller" />
-    <option name="LAST_COMMIT_MESSAGE" value="transportationcontroller" />
+    <MESSAGE value="Fixed bugs cqausing null errors (no documentation)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bugs cqausing null errors (no documentation)" />
   </component>
 </project>
