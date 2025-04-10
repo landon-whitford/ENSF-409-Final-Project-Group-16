@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="Fixed bugs cqausing null errors (no documentation)">
+    <list default="true" id="25a94dee-b0b5-41a6-9190-e835d7227cfd" name="Changes" comment="Schduling Service Documeneted">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/DataAccessManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/DataAccessManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ucalgary/oop/SchedulingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ucalgary/oop/SchedulingService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +91,8 @@
       <workItem from="1744168012871" duration="5395000" />
       <workItem from="1744175384254" duration="126000" />
       <workItem from="1744242210211" duration="874000" />
-      <workItem from="1744259674485" duration="300000" />
+      <workItem from="1744259674485" duration="1704000" />
+      <workItem from="1744298580171" duration="1087000" />
     </task>
     <task id="LOCAL-00001" summary="Data access manager with rr methods">
       <option name="closed" value="true" />
@@ -132,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744242452675</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Schduling Service Documeneted">
+      <option name="closed" value="true" />
+      <created>1744260235526</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1744260235526</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +166,7 @@
     <MESSAGE value="completed report generator class" />
     <MESSAGE value="transportationcontroller" />
     <MESSAGE value="Fixed bugs cqausing null errors (no documentation)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bugs cqausing null errors (no documentation)" />
+    <MESSAGE value="Schduling Service Documeneted" />
+    <option name="LAST_COMMIT_MESSAGE" value="Schduling Service Documeneted" />
   </component>
 </project>

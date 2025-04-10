@@ -11,6 +11,9 @@ import java.util.*;
  * and accessibility requirements.
  * <p>
  * It also handles rescheduling when a driver becomes unavailable.
+ * @author Group 16
+ * @version 1.0
+ * @since 1.0
  */
 
 public class SchedulingService {
